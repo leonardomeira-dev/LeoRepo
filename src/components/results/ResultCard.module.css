@@ -1,0 +1,97 @@
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+  border-left: 4px solid transparent;
+}
+
+.card.info {
+  border-left-color: var(--color-info);
+}
+
+.card.danger {
+  border-left-color: var(--color-danger);
+}
+
+.card.success {
+  border-left-color: var(--color-primary);
+}
+
+.card.neutral {
+  border-left-color: var(--color-text-muted);
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-secondary);
+  margin-bottom: 14px;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.rowLabel {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.rowValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.row.highlight {
+  padding-top: 8px;
+  border-top: 1px dashed var(--color-border);
+  margin-top: 4px;
+}
+
+.row.highlight .rowLabel {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.row.highlight .rowValue {
+  font-size: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.badge.isento {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.badge.ir {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+.badge.iof {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+}

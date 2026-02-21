@@ -1,0 +1,30 @@
+.root {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-neutral);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-sans);
+}
+
+.btn:hover {
+  border-color: var(--color-info);
+  color: var(--color-info);
+  background: var(--color-info-light);
+}
+
+.btn.active {
+  border-color: var(--color-info);
+  background: var(--color-info);
+  color: #fff;
+}

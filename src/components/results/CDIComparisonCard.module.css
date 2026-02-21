@@ -1,0 +1,80 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pctValue {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.number {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.above {
+  color: var(--color-primary);
+}
+
+.below {
+  color: var(--color-warning);
+}
+
+.label {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.barWrapper {
+  position: relative;
+  height: 8px;
+  background: var(--color-neutral-light);
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  max-width: 100%;
+}
+
+.barAbove {
+  background: linear-gradient(90deg, #4caf7d, #1a6b3a);
+}
+
+.barBelow {
+  background: linear-gradient(90deg, #ffb74d, #e65100);
+}
+
+.barMarker {
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  width: 2px;
+  height: 14px;
+  background: var(--color-text-secondary);
+  border-radius: 1px;
+  transform: translateX(-50%);
+}
+
+.barLabel100 {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}

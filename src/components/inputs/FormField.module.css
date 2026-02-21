@@ -1,0 +1,87 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.inputWrapper:focus-within {
+  border-color: var(--color-info);
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.08);
+}
+
+.prefix,
+.suffix {
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--color-neutral-light);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.suffix {
+  border-right: none;
+  border-left: 1px solid var(--color-border);
+}
+
+.input {
+  flex: 1;
+  padding: 9px 12px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text);
+  background: transparent;
+  font-family: var(--font-sans);
+  min-width: 0;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.toggleBtn {
+  padding: 0 12px;
+  border: none;
+  border-left: 1px solid var(--color-border);
+  background: var(--color-neutral-light);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  transition: all 0.15s;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+}
+
+.toggleBtn:hover {
+  background: var(--color-info-light);
+  color: var(--color-info);
+}

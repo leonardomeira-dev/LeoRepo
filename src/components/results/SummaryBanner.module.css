@@ -1,0 +1,91 @@
+.root {
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.positive {
+  background: linear-gradient(135deg, #1a6b3a 0%, #2e7d52 100%);
+  color: #fff;
+}
+
+.negative {
+  background: linear-gradient(135deg, #c62828 0%, #d84315 100%);
+  color: #fff;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.value {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.yield {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+.badge[data-variant="isento"] {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.taxSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.taxLabel {
+  font-size: 11px;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.taxValue {
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.days {
+  font-size: 12px;
+  opacity: 0.7;
+}
