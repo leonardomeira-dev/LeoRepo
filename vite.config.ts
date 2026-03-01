@@ -2,9 +2,9 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/LeoRepo/',
+  base: command === 'serve' ? '/' : '/LeoRepo/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
@@ -13,4 +13,4 @@ export default defineConfig({
   build: {
     target: 'es2020'
   }
-})
+}))
