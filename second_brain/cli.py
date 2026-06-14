@@ -150,14 +150,14 @@ def list_files(category: str):
 
 
 @cli.command()
-@click.option("--api-key", envvar="ANTHROPIC_API_KEY", help="Chave da API Anthropic")
+@click.option("--api-key", envvar="GOOGLE_API_KEY", help="Chave da API Google (Gemini)")
 def chat(api_key: str | None):
-    """Conversa com seu Second Brain usando IA."""
+    """Conversa com seu Second Brain usando IA (Gemini)."""
     _header()
 
     if not api_key:
-        console.print("[red]Configure ANTHROPIC_API_KEY para usar o chat.[/red]")
-        console.print("Exemplo: export ANTHROPIC_API_KEY=sk-ant-...")
+        console.print("[red]Configure GOOGLE_API_KEY para usar o chat.[/red]")
+        console.print("Exemplo: export GOOGLE_API_KEY=AIza...")
         sys.exit(1)
 
     kb = load_knowledge_base()
