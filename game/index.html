@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fundação da Realização Humana — o jogo</title>
+<meta name="description" content="Jogo de empilhamento: construa a Fundação da Realização Humana na ordem correta, do SER ao CONTRIBUIR.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="stage" width="900" height="1180" aria-label="Torre da Realização Humana"></canvas>
+
+  <!-- HUD -------------------------------------------------------------- -->
+  <div id="hud" class="hidden">
+    <div class="hud-row">
+      <div class="hud-box">
+        <span class="hud-label">Pontos</span>
+        <span class="hud-value" id="ui-score">0</span>
+      </div>
+      <div class="hud-box">
+        <span class="hud-label">Degrau</span>
+        <span class="hud-value"><span id="ui-step">1</span><small>/8</small></span>
+      </div>
+      <div class="hud-box">
+        <span class="hud-label">Combo</span>
+        <span class="hud-value" id="ui-combo">x1</span>
+      </div>
+    </div>
+    <div class="stability">
+      <div class="stability-head">
+        <span class="hud-label">Estabilidade da fundação</span>
+        <span class="hud-label" id="ui-stab-num">100%</span>
+      </div>
+      <div class="stability-bar"><div id="ui-stab-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Banner de feedback ----------------------------------------------- -->
+  <div id="banner" class="hidden"><strong id="banner-title"></strong><span id="banner-text"></span></div>
+
+  <!-- Controles --------------------------------------------------------- -->
+  <div id="controls" class="hidden">
+    <div id="cards"></div>
+    <div class="control-row">
+      <button id="btn-drop" class="btn btn-drop">Soltar bloco <kbd>espaço</kbd></button>
+      <button id="btn-hint" class="btn btn-ghost" title="Revela o próximo degrau por 3s (-150 pontos)">Consultar a ordem <kbd>H</kbd></button>
+    </div>
+  </div>
+
+  <!-- Telas ------------------------------------------------------------- -->
+  <div id="screen" class="screen">
+    <div class="screen-card">
+      <p class="eyebrow" id="sc-eyebrow">Ideias práticas para um amanhã melhor</p>
+      <h1 id="sc-title">Fundação da<br>Realização Humana</h1>
+      <p class="lede" id="sc-lede">Uma arquitetura para perceber, decidir, agir e florescer.</p>
+
+      <div id="sc-body">
+        <ul class="rules">
+          <li><b>Empilhe os 8 degraus na ordem certa.</b> Cada bloco só se sustenta sobre o que vem antes.</li>
+          <li><b>Mire.</b> O guindaste vai e volta; solte no centro da torre para um encaixe perfeito.</li>
+          <li><b>Erro de ordem ou desalinho</b> abala a estabilidade. Se ela zerar, a torre rui.</li>
+        </ul>
+        <div class="keys">
+          <span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> escolher bloco</span>
+          <span><kbd>←</kbd><kbd>→</kbd> alternar</span>
+          <span><kbd>espaço</kbd> soltar</span>
+          <span><kbd>H</kbd> dica</span>
+        </div>
+        <div class="difficulty" id="sc-diff">
+          <button class="diff" data-diff="aprendiz">Aprendiz<small>guindaste lento</small></button>
+          <button class="diff is-on" data-diff="construtor">Construtor<small>equilibrado</small></button>
+          <button class="diff" data-diff="visionario">Visionário<small>rápido e exigente</small></button>
+        </div>
+      </div>
+
+      <div id="sc-stats" class="stats hidden"></div>
+      <button id="sc-action" class="btn btn-primary">Começar a construir</button>
+      <p class="best">Melhor pontuação: <span id="sc-best">0</span></p>
+      <p class="foot">A tecnologia amplifica — mas não substitui — propósito, valores e caráter.</p>
+    </div>
+  </div>
+
+  <button id="btn-sound" class="btn btn-icon" title="Som (S)" aria-label="Alternar som">♪</button>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
