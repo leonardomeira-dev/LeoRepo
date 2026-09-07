@@ -131,8 +131,15 @@ const game = {
   t: 0,
 };
 
-const best = { score: +(localStorage.getItem('frh.best') || 0) };
-let soundOn = localStorage.getItem('frh.sound') !== 'off';
+/* Alguns navegadores (Safari em file://, janela anônima) barram o localStorage:
+   a memória é enfeite, o jogo roda sem ela. */
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (_) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (_) { /* segue o jogo */ } },
+};
+
+const best = { score: +(store.get('frh.best') || 0) };
+let soundOn = store.get('frh.sound') !== 'off';
 
 /* ---------------------------------------------------------------- áudio -- */
 
@@ -361,7 +368,7 @@ function finish(won) {
   }
   if (game.score > best.score) {
     best.score = game.score;
-    localStorage.setItem('frh.best', String(best.score));
+    store.set('frh.best', String(best.score));
   }
   syncHud();
   setTimeout(() => showEndScreen(won), won ? 900 : 1200);
@@ -796,7 +803,7 @@ el.scAction.addEventListener('click', () => {
 
 function toggleSound() {
   soundOn = !soundOn;
-  localStorage.setItem('frh.sound', soundOn ? 'on' : 'off');
+  store.set('frh.sound', soundOn ? 'on' : 'off');
   el.sound.classList.toggle('off', !soundOn);
   if (soundOn) SFX.pick();
 }
