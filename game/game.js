@@ -202,6 +202,7 @@ function start() {
   el.screen.classList.add('hidden');
   el.hud.classList.remove('hidden');
   el.controls.classList.remove('hidden');
+  resize();
   syncHud();
   showBanner('Degrau 1', 'Comece pela base: o que sustenta tudo o mais?');
 }
@@ -231,6 +232,7 @@ function renderCards() {
     el.cards.appendChild(b);
   });
   applyHintStyle();
+  if (game.phase === 'playing') resize();
 }
 
 function choose(i) {
@@ -381,6 +383,7 @@ function showEndScreen(won) {
   el.hud.classList.add('hidden');
   el.controls.classList.add('hidden');
   el.banner.classList.add('hidden');
+  resize();
 
   el.scEyebrow.textContent = won ? 'Fundação completa' : 'A torre ruiu';
   el.scTitle.innerHTML = won ? 'Um mundo<br>mais humano' : 'Fundações<br>invisíveis';
@@ -760,9 +763,12 @@ function frame(now) {
 
 /* --------------------------------------------------------- interação -- */
 
+/** A cena cabe no espaço acima dos controles, para nenhum bloco ficar coberto. */
 function resize() {
-  const pad = 0;
-  const scale = Math.min((window.innerWidth - pad) / W, (window.innerHeight - pad) / H);
+  const controlsH = el.controls.classList.contains('hidden') ? 0 : el.controls.offsetHeight;
+  document.getElementById('app').style.paddingBottom = controlsH + 'px';
+  const availH = Math.max(260, window.innerHeight - controlsH);
+  const scale = Math.min(window.innerWidth / W, availH / H);
   canvas.style.width = Math.floor(W * scale) + 'px';
   canvas.style.height = Math.floor(H * scale) + 'px';
   if (game.bannerUntil) placeBanner();
